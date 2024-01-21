@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Pet</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body style="background-image: url('static/background 2.gif'); background-size: 100%, 50%;">
+    <style type="text/css">
+        body {
+            cursor: url('data:image/x-icon;base64,AAACAAEAICAQAAAAAADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAcEmKALeE2QDx2/8ApXbEANec/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAFBAAAAAAAAAAAAAAAAAAAVVBAAAAAAAAAAAAAAAAABVVJBAAAAAAAAAAAAAAAAFVVVJBAAAAAAAAAAAAAAABVVEiMQAAAAAAAAAAAAAAAVUQEzEAAAAAAAAAAAAAAAARAAEQAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAExADAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAEAEAAAAAAAAAAAAAAAAAAAATEAAAAAAAAAAAAAAAAAAwAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAREAAAAAAAAAAAAAAAAAEREhEAAAAAAAAAAAAAAAARVVVBAAAAAAAAAAAAAAAAFVVVQQAAAAAAAAAAAAAAABUVUkEAAAAAAAAAAAAAAAARVVJBAAAAAAAAAAAAAAAAAVUkQQAAAAAAAAAAAAAAABUiQREAAAAAAAAAAAAAAAAVMREAAAAAAAAAAAAAAAAAEzEAAAAAAAAAAAAAAAAAABEQAAAAAAAAAAAAAAAAAAD///////////7////8f///+D////Af///gD///4A///+EP///zn////v/////////u////7////8b////v////7t////+P///+3/////////7////x////gP///wD///8A////AP///wD///+A////AP///wP///8P////H////w=='), auto;
+        }
+
+        .buttons0,
+        .buttons1,
+        .buttons2 {
+            cursor: url('data:image/x-icon;base64,AAACAAEAICAQAAAAAADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAcEmKALeE2QDx2/8ApXbEANec/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAFBAAAAAAAAAAAAAAAAAAAVVBAAAAAAAAAAAAAAAAABVVJBAAAAAAAAAAAAAAAAFVVVJBAAAAAAAAAAAAAAABVVEiMQAAAAAAAAAAAAAAAVUQEzEAAAAAAAAAAAAAAAARAAEQAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAExADAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAEAEAAAAAAAAAAAAAAAAAAAATEAAAAAAAAAAAAAAAAAAwAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAREAAAAAAAAAAAAAAAAAEREhEAAAAAAAAAAAAAAAARVVVBAAAAAAAAAAAAAAAAFVVVQQAAAAAAAAAAAAAAABUVUkEAAAAAAAAAAAAAAAARVVJBAAAAAAAAAAAAAAAAAVUkQQAAAAAAAAAAAAAAABUiQREAAAAAAAAAAAAAAAAVMREAAAAAAAAAAAAAAAAAEzEAAAAAAAAAAAAAAAAAABEQAAAAAAAAAAAAAAAAAAD///////////7////8f///+D////Af///gD///4A///+EP///zn////v/////////u////7////8b////v////7t////+P///+3/////////7////x////gP///wD///8A////AP///wD///+A////AP///wP///8P////H////w=='), auto;
+        }
+    </style>
+
+    <canvas id="canvas1" style="display: none;"></canvas>
+    <div class="button-container">
+        <button class="buttons0">Sleep</button>
+        <button class="buttons1">Feed</button>
+        <button class="buttons2">Pet</button>
+    </div>
+
+    <script>
+        // this has been declared as a variable
+        let hasEnteredName = false;
+
+        // Function to get and display the user's name
+        function getAndDisplayUserName() {
+            // Check if the user has already entered their name
+            if (!hasEnteredName) {
+                // Get the user's name
+                const userName = prompt("Choose your pet's name:");
+
+                // Display the user's name on the screen
+                if (userName !== null && userName !== "") {
+                    const greetingElement = document.createElement("p");
+                    greetingElement.textContent = "Meet " + userName + "!";
+
+                    // Adding a class to the <p> element
+                    greetingElement.classList.add("user-greeting");
+
+                    document.body.appendChild(greetingElement);
+
+                    // Update twhen user has entered their name
+                    hasEnteredName = true;
+
+                    // Show the canvas and start the animation
+                    showCanvasAndStartAnimation();
+                }
+            }
+        }
+
+        // this is the function to show the canvas and start the animation
+        function showCanvasAndStartAnimation() {
+            const canvas = document.getElementById('canvas1');
+            canvas.style.display = "block";
+
+            // Ythis is my existing animation 
+            const ctx = canvas.getContext('2d');
+            const CANVAS_WIDTH = canvas.width = 1436;
+            const CANVAS_HEIGHT = canvas.height = 600;
+        }
+
+        // Call the function when the page loads
+        window.onload = getAndDisplayUserName;
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
